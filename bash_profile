@@ -87,8 +87,11 @@ export LANG=en_US.UTF-8
 encrypt() {
   # encrypt a file with auto generated password using aes256
   infile=$1
-  if [[ ! -e $infile ]]; then
+  if [[ $# -lt 1 ]]; then
     echo "Usage: encrypt filename"
+    return 1
+  fi
+  if [[ ! -e $infile ]]; then
     echo "File $infile does not exist!"
     return 1
   fi
