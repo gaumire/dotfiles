@@ -88,6 +88,7 @@ encrypt() {
   # encrypt a file with auto generated password using aes256
   infile=$1
   if [[ ! -e $infile ]]; then
+    echo "Usage: encrypt filename"
     echo "File $infile does not exist!"
     return 1
   fi
